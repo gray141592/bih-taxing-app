@@ -1,2 +1,29 @@
 # bih-taxing-app
-Electron.js app that will allow creation and monitoring of tax reports, and prepare files for sending to BiH online tax system. 
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Run your unit tests
+```
+yarn test:unit
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
