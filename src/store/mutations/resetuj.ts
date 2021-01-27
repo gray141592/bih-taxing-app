@@ -1,4 +1,4 @@
-import { State } from '@/models/store';
+import { State } from '@/models/store/state';
 
 const resetuj = (state: State) => {
   state.tsvIzvjestaj = [];

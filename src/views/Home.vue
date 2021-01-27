@@ -56,7 +56,6 @@
         md="4">
           <v-text-field
           v-model="brojDatoteke"
-          type="number"
           min="1"
           label="Broj datoteke u poreskom periodu"
           required />
@@ -124,7 +123,7 @@ export default Vue.extend({
         redniBrojDatoteke: this.brojDatoteke,
         tsv: this.tsv,
       });
-      this.$router.push('/about');
+      this.$router.push(tsvPage.csvPageLink(this.tipIzvjestaja));
     },
   },
 });

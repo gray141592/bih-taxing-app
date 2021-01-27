@@ -1,5 +1,6 @@
-import { State } from '@/models/store';
+import { State } from '@/models/store/state';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const obradiUlaz = (state: State, payload: any) => {
   const { ulaz, getters } = payload;
   const dobavljac = getters.dobavljac(ulaz.jmbgDobavljaca);

@@ -1,8 +1,8 @@
 import { SlogNabavke } from '@/models/pdv';
-import { State } from '@/models/store';
+import { State } from '@/models/store/state';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const upisiUlaz = (state: State, payload: any) => {
+const sacuvajUlaz = (state: State, payload: any) => {
   const index = state.tsvIzvjestaj?.findIndex((red) => red.brojFakture === payload.brojFakture);
 
   if (index !== 0 && !index) {
@@ -27,4 +27,4 @@ const upisiUlaz = (state: State, payload: any) => {
   return state.tsvIzvjestaj?.splice(index, 1, redIzvjestaja);
 };
 
-export default upisiUlaz;
+export default sacuvajUlaz;

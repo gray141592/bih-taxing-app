@@ -6,6 +6,12 @@ const tsvPage = {
     text: 'Isporuke',
     value: 'citanjeIzlaza',
   }],
+  csvPageLink: (tipIzvjestaja: string): string => {
+    if (tipIzvjestaja === 'citanjeUlaza') {
+      return '/ulaz';
+    }
+    return '/izlaz';
+  },
   godine: [{
     text: '2020',
     value: '20',

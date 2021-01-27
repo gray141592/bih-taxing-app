@@ -1,4 +1,4 @@
-import { State } from '@/models/store';
+import { State } from '@/models/store/state';
 import { PdvObveznik } from '@/models/pdv';
 
 // eslint-disable-next-line max-len

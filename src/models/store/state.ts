@@ -7,5 +7,5 @@ export interface State {
 
     zaglavlje?: SlogZaglavlja;
 
-    tsvIzvjestaj?: Array<SlogNabavke | SlogIsporuka>;
+    tsvIzvjestaj: Array<SlogNabavke | SlogIsporuka>;
 }

@@ -1,5 +1,12 @@
-import { State } from '@/models/store';
+import { State } from '@/models/store/state';
 
-const nazivCsvFajla = (state: State): string => `${state.zaglavlje?.pdvBrojObveznika}_${state.zaglavlje?.poreskiPeriod}_${state.zaglavlje?.tipDatoteke}_${state.zaglavlje?.redniBrojDatoteke}.csv`;
+const nazivCsvFajla = (state: State) => (tipDatoteke: string) => {
+  const poljaNazivaFajla: Array<string> = [];
+  poljaNazivaFajla.push(state.zaglavlje?.pdvBrojObveznika || '');
+  poljaNazivaFajla.push(state.zaglavlje?.poreskiPeriod || '');
+  poljaNazivaFajla.push(tipDatoteke);
+  poljaNazivaFajla.push(`0${state.zaglavlje?.redniBrojDatoteke || ''}`);
+  return `${poljaNazivaFajla.join('_')}.csv`;
+};
 
 export default nazivCsvFajla;

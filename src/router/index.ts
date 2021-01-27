@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import Ulaz from '../views/Ulaz.vue';
+import Izlaz from '../views/Izlaz.vue';
 
 Vue.use(VueRouter);
 
@@ -12,9 +13,14 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About,
+    path: '/ulaz',
+    name: 'Ulaz',
+    component: Ulaz,
+  },
+  {
+    path: '/izlaz',
+    name: 'Izlaz',
+    component: Izlaz,
   },
 ];
 

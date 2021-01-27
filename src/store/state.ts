@@ -7,5 +7,5 @@ export default class State {
 
     zaglavlje!: SlogZaglavlja;
 
-    tsvIzvjestaj?: Array<SlogNabavke | SlogIsporuka> = [];
+    tsvIzvjestaj: Array<SlogNabavke | SlogIsporuka> = [];
 }

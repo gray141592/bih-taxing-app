@@ -1,18 +1,13 @@
+import moment from 'moment';
+
 import {
   PdvObveznik, RedUlaza, SlogZaglavlja,
 } from '@/models/pdv';
 
-function parsirajDatum(datum: string): Date {
-  const [dan, mjesec, godina] = datum.split('.');
-  const result: Date = new Date();
-  result.setFullYear(parseInt(godina, 10), parseInt(mjesec, 10), parseInt(dan, 10));
-  return result;
-}
-
 function parsirajRed(red: Array<string>): RedUlaza {
   return {
     brojFakture: red[0],
-    datum: parsirajDatum(red[1]),
+    datum: moment(red[1], 'DD.MM.YYYY').toDate(),
     dobavljac: red[2],
     jmbg: red[3],
     bezPdv: parseFloat(red[4]),
@@ -29,7 +24,7 @@ export default (context: any, payload: any) => {
     vrstaSloga: 1,
     pdvBrojObveznika: payload.pdvBrojObveznika,
     poreskiPeriod: `${payload.godina}${payload.mjesec}`,
-    tipDatoteke: '2',
+    tipDatoteke: '1',
     redniBrojDatoteke: payload.redniBrojDatoteke,
     datumKreiranja: new Date(),
   };
@@ -57,7 +52,7 @@ export default (context: any, payload: any) => {
           ulazniPDV: redUlaza.pdv,
           ulazniPDVo: redUlaza.pdv,
           ulazniPDVno: 0,
-          ulazniPDVo32: redUlaza.pdv,
+          ulazniPDVo32: 0,
           ulazniPDVno33: 0,
           ulazniPDVno34: 0,
         },

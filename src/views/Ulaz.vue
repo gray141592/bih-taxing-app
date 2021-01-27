@@ -226,12 +226,6 @@
                   </v-col>
                   <v-col>
                     <v-text-field
-                      v-model="item.iznos.ulazniPDVo32"
-                      type="number"
-                      label="Ulazni PDV polje 32" />
-                  </v-col>
-                  <v-col>
-                    <v-text-field
                       v-model="item.iznos.ulazniPDVno33"
                       type="number"
                       label="Ulazni PDV polje 33" />
@@ -295,12 +289,10 @@ import { SlogNabavke } from '@/models/pdv';
 import csvPage from '@/constants/csvPage';
 
 export default Vue.extend({
-  name: 'About',
+  name: 'Ulaz',
   data: (): DataModel => ({
     unesiDobavljaca: false,
     izvjestajPreuzet: false,
-    tsvHeader: csvPage.tsvHeader,
-    tipoviDokumenata: csvPage.tipoviDokumenata,
     datumPrijema: '',
     datumFakture: '',
     expanded: [],
@@ -309,6 +301,12 @@ export default Vue.extend({
     snackbar: false,
   }),
   computed: {
+    tsvHeader() {
+      return csvPage.tsvHeader(this.$store.state.zaglavlje.tipDatoteke) || [];
+    },
+    tipoviDokumenata() {
+      return csvPage.tipoviDokumenata(this.$store.state.zaglavlje.tipDatoteke) || [];
+    },
     nepotpunIzvjestaj() {
       return this.$store.state.tsvIzvjestaj.some((red: any) => red.neispravan);
     },
@@ -324,6 +322,12 @@ export default Vue.extend({
     formatNumber() {
       return (number: string | number) => (typeof number === 'number' ? number.toFixed(2) : number);
     },
+    nazivCsvFajla() {
+      return this.$store.getters.nazivCsvFajla(this.$store.state.zaglavlje.tipDatoteke);
+    },
+  },
+  mounted() {
+    console.log(this.$store.state.zaglavlje);
   },
   methods: {
     openDialog(puniNaziv: string, jmbgDobavljaca: string) {
@@ -355,7 +359,7 @@ export default Vue.extend({
       this.snackbar = true;
     },
     savucajTsv(item: SlogNabavke) {
-      this.$store.commit('sacuvajTsv', {
+      this.$store.commit('sacuvajUlaz', {
         ...item,
         datumPrijema: moment(this.datumPrijema, 'DD.MM.YYYY').toDate(),
         datumFakture: moment(this.datumFakture, 'DD.MM.YYYY').toDate(),
@@ -368,7 +372,7 @@ export default Vue.extend({
       const anchor = document.createElement('a');
       anchor.href = `data:text/csv;charset=utf-8,${encodeURIComponent(csv)}`;
       anchor.target = '_blank';
-      anchor.download = this.$store.getters.nazivCsvFajla;
+      anchor.download = this.nazivCsvFajla;
       anchor.click();
       this.izvjestajPreuzet = true;
     },
@@ -393,8 +397,6 @@ export default Vue.extend({
 });
 interface DataModel {
   unesiDobavljaca: boolean;
-  tsvHeader?: any;
-  tipoviDokumenata: any;
   expanded: Array<any>;
   dobavljac: {
       puniNaziv?: string;

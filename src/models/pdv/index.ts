@@ -5,6 +5,7 @@ import { SlogIsporuka } from './slog-isporuka';
 import { SlogNabavke } from './slog-nabavke';
 import { SlogZaglavlja } from './slog-zaglavlja';
 import { RedUlaza } from './red-ulaza';
+import { RedIzlaza } from './red-izlaza';
 
 export {
   PdvObveznik,
@@ -14,4 +15,5 @@ export {
   SlogNabavke,
   SlogZaglavlja,
   RedUlaza,
+  RedIzlaza,
 };

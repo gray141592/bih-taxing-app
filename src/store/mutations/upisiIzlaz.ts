@@ -1,7 +1,7 @@
-import { SlogNabavke } from '@/models/pdv';
+import { SlogIsporuka } from '@/models/pdv';
 import { State } from '@/models/store/state';
 
-const upisiUlaz = (state: State, payload: SlogNabavke) => {
+const upisiIzlaz = (state: State, payload: SlogIsporuka) => {
   if (state.tsvIzvjestaj) {
     state.tsvIzvjestaj.push(payload);
   } else {
@@ -9,4 +9,4 @@ const upisiUlaz = (state: State, payload: SlogNabavke) => {
   }
 };
 
-export default upisiUlaz;
+export default upisiIzlaz;
