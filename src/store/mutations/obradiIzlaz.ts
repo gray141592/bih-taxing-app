@@ -3,7 +3,7 @@ import { State } from '@/models/store/state';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const obradiIzlaz = (state: State, payload: any) => {
   const { izlaz, getters } = payload;
-  const nabavljac = getters.dobavljac(izlaz.jmbgDobavljaca);
+  const nabavljac = getters.dobavljac(izlaz.jmbgNabavljaca);
 
   if (!nabavljac) {
     return;
