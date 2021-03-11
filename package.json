@@ -1,6 +1,6 @@
 {
   "name": "bih-taxing-app",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -17,7 +17,6 @@
     "@mdi/font": "^3.6.95",
     "@types/electron-devtools-installer": "^2.2.0",
     "core-js": "^3.6.5",
-    "electron": "^9.0.0",
     "electron-devtools-installer": "^3.1.0",
     "moment": "^2.29.1",
     "roboto-fontface": "*",
@@ -44,7 +43,7 @@
     "@vue/test-utils": "^1.0.3",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "electron": "^9.0.0",
+    "electron": "9.4.4",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
